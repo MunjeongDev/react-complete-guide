@@ -1,4 +1,6 @@
-import Expenses from './components/Expenses';
+import React from 'react';
+// 위 라인을 쓸 필요는 없다. 강의에서 JSX코드를 사용할 때 사실 리액트가 사용되고 있음을 강조하고자 썼다고 함
+import Expenses from './components/Expenses/Expenses';
 
 function App() {
   const expenses = [
@@ -23,11 +25,17 @@ function App() {
     },
   ];
 
-  return (
-    <div>
-      <Expenses items={expenses} />
-    </div>
+  return React.createElement(
+    'div',
+    {},
+    React.createElement(Expenses, { items: expenses })
   );
+
+  // return (
+  //   <div>
+  //     <Expenses items={expenses} />
+  //   </div>
+  // );
 }
 
 export default App;
